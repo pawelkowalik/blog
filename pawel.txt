@@ -1,1 +1,3 @@
 aaaa
+Trzeba było zrobić
+git remote set-url origin git@github.com:pawelkowalik/blog.git
