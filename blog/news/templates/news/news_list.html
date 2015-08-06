@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>...czyli jak ciężka jest droga do zdobycia tego tytułu;)</h3><br><br>
+{% for entry in news_list %}
+    <h1><a href="{% url "news-detail" entry.slug %}">{{ entry.title }}</a> - {{entry.posted_date}}</h1>
+    <h4>{{ entry.text|safe|truncatewords:50 }} <a href="{% url "news-detail" entry.slug %}">[czytaj dalej]</a><br>
+    <h4><h5>Dodano {{entry.posted_date}} przez użytkownika {{entry.author}}</h5>
+        {% for image in entry.pictures.all %}
+            <img src="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" height=120 alt="" class="center" />&nbsp
+        {% endfor %}<br>
+        Komentarze: ({{ entry.notetopost_set.all.count }})<br>
+
+{% endfor %}
+{% endblock %}

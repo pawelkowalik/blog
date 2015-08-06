@@ -1,0 +1,10 @@
+tconfig
+.profile
+.pythonstartup.py
+.vimrc
+.virtualenvs/
+.bashrc
+.cache/
+.gitconfig
+.ssh/
+.viminfo

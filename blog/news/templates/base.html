@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Działkowicz roku</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8-" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+<script type="text/javascript" href="{% static 'unitpngfix.js' %}"></script>
+</head>
+<body>
+<div id="main_container">
+  <div class="top_leafs"><img src="{% static 'images\top_leafs.png' %}" alt="" /></div>
+  <div id="header">
+    <div class="logo"> <a href="{% url "news-list" %}">DZIAŁKOWICZ ROKU</a> </div>
+    <div class="menu">
+      <ul>
+        <li class="selected"><a href="{% url "news-list" %}">home</a></li>
+        <li><a href="{% url "add-comment" %}">dodaj komentarz</a></li>
+        <li><a href="http://www.free-css.com/">o mnie</a></li>
+        <li><a href="http://www.free-css.com/">zdjęcia</a></li>
+        <li><a href="http://www.free-css.com/">kontakt</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="center_content">
+    <div class="left_content">
+        {% block content %}
+	    {% endblock %}
+      </div>
+    </div>
+
+
+    <div class="bottom_content">
+      <div class="about_text">
+        <h1>O mnie</h1>
+        <p> Tu będzie kilka słówek o mnie, ale to za jaki czas. </p>
+      </div>
+      <div class="friends_list">
+        <h1>Zaprzyjaźnione strony</h1>
+        <ul class="list">
+          <li><a href="http://www.free-css.com/">Facebook Pana Kruka</a></li>
+          <li><a href="http://www.free-css.com/">Kastorama</a></li>
+          <li><a href="http://www.free-css.com/"></a></li>
+          <li><a href="http://www.free-css.com/"></a></li>
+        </ul>
+      </div>
+      <div class="bottom_right"> <a href="http://www.free-css.com/"><img src="images/join_club.gif" alt="" border="0" /></a> <a href="http://csstemplatesmarket.com"><img src="images/csstemplatesmarket.gif" alt="" border="0" /></a> </div>
+      <div class="footer"> &copy; Działkowicz roku 2015. All Rights Reserved </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
