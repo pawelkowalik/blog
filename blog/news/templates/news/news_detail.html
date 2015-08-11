@@ -4,25 +4,36 @@
 		<p>{{ news.posted_date|date:" d.m.Y " }}</p>
 		<p>{{ news.text|safe }}</p>
 		{% for image in news.pictures.all %}
-            <center><img src="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" height=400 alt="" class="center" /></center><br>
-            {{ image.title }}<br><br>
-        {% endfor %}
-        <br><br><b>Komentarze:</b><br><br>
-        {% for note in all_notes %}
-        {% ifequal note.post_id.id news.id %}
-            <br> {{ note.text }}
-            <h6><i>Dodany przez użytkonika {{ note.author }} {{ note.posted_date|date:"d E Y "}} o godzinie {{ note.posted_date|date:" H:i " }}</i></h6>
-        {% endifequal %}
-    {% endfor %}<br>
-    <form method="post" class="form-horizontal" role="form">
+			<center><img src="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" height=400 alt="" class="center" /></center><br>
+			{{ image.title }}<br><br>
+		{% endfor %}
+		<br><br><b>Komentarze:</b><br><br>
+		{% for note in news.notetopost_set.all %}
+			<br> {{ note.text }}
+			<h6><i>Dodany przez użytkownika {{ note.author }} {{ note.posted_date|date:"d E Y "}} o godzinie {{ note.posted_date|date:" H:i " }}</i></h6>
+		{% empty %}
+			Nie dodano jeszcze komentarzy
+		{% endfor %}<br>
+	<form method="post" class="form-horizontal" role="form">
 		{% csrf_token %}
-        <div class="form-group">
-            <textaera>{{ form.text }}</textaera>
-            {{ form.author }}
-            <input value="{{ news.id }}"/>
-
-        </div>
-        <div class="form-group">
+		<div class="form-group">
+			<div>
+				Treść: <textaera>{{ form.text }}</textaera>
+				{% for error in form.text.errors %}
+					{{ error }}
+				{%  endfor %}
+			</div>
+			<div>
+				Autor: {{ form.author }}
+				{% for error in form.author.errors %}
+					{{ error }}
+				{%  endfor %}
+			</div>
+			<div>
+				<input id="id_post_id" value="{{ news.id }}" name="post_id" hidden="hidden"/>
+			</div>
+		</div>
+		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-default">Dodaj</button>
 			</div>
