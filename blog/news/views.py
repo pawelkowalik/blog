@@ -21,11 +21,6 @@ class NewsList(generic.ListView):
 
 news_list = NewsList.as_view()
 
-class AddNoteForm(forms.ModelForm):
-    class Meta:
-        model=models.NoteToPost
-        fields = ['post_id', 'text', 'author']
-
 
 def add_note(request):
     form = AddNoteForm(request.POST or None)

@@ -8,3 +8,7 @@ tconfig
 .gitconfig
 .ssh/
 .viminfo
+
+*.py[co]
+.idea/
+*.sqlite
