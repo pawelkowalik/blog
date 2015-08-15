@@ -7,12 +7,9 @@
 			<center><img src="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" height=400 alt="" class="center" /></center><br>
 			{{ image.title }}<br><br>
 		{% endfor %}
-		<br><br><b>Komentarze:</b><br><br><ol>
+		<br><br><b>Komentarze:</b><br><ol>
 		{% for note in news.notetopost_set.all %}
-			<br><li> {{ note.text }}</li>
-			<h6>Dodany przez użytkownika {{ note.author }} {{ note.posted_date|date:"d E Y "}} o godzinie {{ note.posted_date|date:" H:i " }}</h6>
-		{% empty %}
-            <br><li><b>{{ note.author }}</b> - {{ note.posted_date|date:" H:i " }}, {{ note.posted_date|date:"d E Y "}}
+			<br><li><b>{{ note.author }}</b> - {{ note.posted_date|date:" H:i " }}, {{ note.posted_date|date:"d E Y "}}
 			<br> {{ note.text }}</li>
         {% empty %}
 			Nie dodano jeszcze komentarzy
