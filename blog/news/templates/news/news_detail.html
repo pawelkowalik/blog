@@ -7,24 +7,26 @@
 			<center><img src="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" height=400 alt="" class="center" /></center><br>
 			{{ image.title }}<br><br>
 		{% endfor %}
-		<br><br><b>Komentarze:</b><br><br>
+		<br><br><b>Komentarze:</b><br><br><ol>
 		{% for note in news.notetopost_set.all %}
-			<br> {{ note.text }}
-			<h6><i>Dodany przez użytkownika {{ note.author }} {{ note.posted_date|date:"d E Y "}} o godzinie {{ note.posted_date|date:" H:i " }}</i></h6>
+			<br><li> {{ note.text }}</li>
+			<h6>Dodany przez użytkownika {{ note.author }} {{ note.posted_date|date:"d E Y "}} o godzinie {{ note.posted_date|date:" H:i " }}</h6>
 		{% empty %}
 			Nie dodano jeszcze komentarzy
-		{% endfor %}<br>
+		{% endfor %}</ol><br>
 	<form method="post" class="form-horizontal" role="form">
 		{% csrf_token %}
 		<div class="form-group">
 			<div>
-				Treść: <textaera>{{ form.text }}</textaera>
+				Treść:<br>
+                <textaera>{{ form.text }}</textaera>
 				{% for error in form.text.errors %}
 					{{ error }}
 				{%  endfor %}
 			</div>
 			<div>
-				Autor: {{ form.author }}
+				Autor:<br>
+                {{ form.author }}
 				{% for error in form.author.errors %}
 					{{ error }}
 				{%  endfor %}
@@ -35,7 +37,7 @@
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default">Dodaj</button>
+				<br><button type="submit" class="btn btn-default">Dodaj komentarz</button>
 			</div>
 		</div>
 </form>
