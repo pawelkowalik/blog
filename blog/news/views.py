@@ -20,8 +20,6 @@ class NewsList(generic.ListView):
 
         return context
 
-news_list = NewsList.as_view()
-
 
 def add_note(request):
     form = AddNoteForm(request.POST or None)
