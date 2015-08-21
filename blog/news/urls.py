@@ -9,6 +9,6 @@ urlpatterns = patterns('',
     url(r'^/?$', NewsList.as_view(), name='news-list'),
     url(r'^news/(?P<slug>[\w\-_]+)/$', NewsDetailView.as_view(),
         name='news-detail'),
-    url(r'^(?P<page>[0-9]+)/$', NewsList.as_view(), name='news-list'),
-    url(r'^dodaj_komentarz/$', 'news.views.add_note', name='add-comment'),
+    url(r'^(?P<page>[0-9]+)/$', NewsList.as_view(), name='news-list-page'),
+
 )
