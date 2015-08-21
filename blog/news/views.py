@@ -16,19 +16,8 @@ class NewsList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(NewsList, self).get_context_data(**kwargs)
         context['all_news'] = News.objects.order_by('-posted_date', 'title')
-        context['all_notes'] = NoteToPost.objects.order_by('posted_date')
 
         return context
-
-news_list = NewsList.as_view()
-
-
-def add_note(request):
-    form = AddNoteForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-
-    return render(request, 'add_comment.html', {'form': form.as_p()})
 
 
 class NewsDetailView(generic.FormView):
