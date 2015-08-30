@@ -3,7 +3,7 @@ from django.http import Http404
 from django.views import generic
 from django.shortcuts import render
 
-from .models import News, NoteToPost
+from .models import News, NoteToPost, Image
 from .forms import AddNoteForm
 
 
@@ -18,6 +18,12 @@ class NewsList(generic.ListView):
         context['all_news'] = News.objects.order_by('-posted_date', 'title')
 
         return context
+
+
+class ImageList(generic.ListView):
+    model = Image
+    context_object_name = 'image_list'
+    queryset = Image.objects.order_by('-date')
 
 
 class NewsDetailView(generic.FormView):

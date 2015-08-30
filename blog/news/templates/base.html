@@ -4,6 +4,7 @@
 <title>Działkowicz roku</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8-" />
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link href="{% static 'lightbox/lightbox.css' %}" rel="stylesheet">
 <script type="text/javascript" href="{% static 'unitpngfix.js' %}"></script>
 </head>
 <body>
@@ -15,7 +16,7 @@
       <ul>
         <li class="selected"><a href="{% url "news-list" %}">home</a></li>
         <li><a href="http://www.free-css.com/">o mnie</a></li>
-        <li><a href="http://www.free-css.com/">zdjęcia</a></li>
+        <li><a href="{% url "image-list" %}">zdjęcia</a></li>
         <li><a href="http://www.free-css.com/">kontakt</a></li>
           <li><a href="{% url "archieve-feed" %}">RSS</a></li>
       </ul>
@@ -48,5 +49,6 @@
     </div>
   </div>
 </div>
+<script src="{% static 'lightbox/lightbox-plus-jquery.js' %}"></script>
 </body>
 </html>

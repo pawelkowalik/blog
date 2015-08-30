@@ -6,7 +6,8 @@
     <h4>{{ entry.text|safe|truncatewords:50 }} <a href="{% url "news-detail" entry.slug %}">[czytaj dalej]</a><br>
     <h4><h5>Dodano {{entry.posted_date}} przez użytkownika {{entry.author}}</h5>
         {% for image in entry.pictures.all %}
-            <img src="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" height=120 alt="" class="center" />&nbsp
+            <a href="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" data-lightbox="{{ image.title }}" data-title="{{ image.title }} - zdjęcie z {{ image.date }}">
+            <img src="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" height=120 alt="" class="center" /></a>&nbsp
         {% endfor %}<br><br>
         <a href="{% url "news-detail" entry.slug %}">Komentarze: ({{ entry.notetopost_set.all.count }})</a><br><br><hr>
 
