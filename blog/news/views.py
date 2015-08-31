@@ -1,9 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.views import generic
-from django.shortcuts import render
 
-from .models import News, NoteToPost, Image
+from .models import News, Image
 from .forms import AddNoteForm
 
 

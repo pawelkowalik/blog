@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<h3>...czyli jak ciężka jest droga do zdobycia tego tytułu;)</h3><br><br>
-    <br>
-    <ul><h1>Zdjęcia od najnowszych do najstarszych:</h1>
+<h3>...czyli jak ciężka jest droga do zdobycia tego tytułu;)</h3><br>
+    <h1>Zdjęcia od najnowszych do najstarszych:</h1><ul>
     {% for image in image_list %}
         {% ifchanged %}
             <br><br><li><h1>{{ image.date }}</h1></li>
