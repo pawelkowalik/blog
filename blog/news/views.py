@@ -1,6 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.views import generic
+from django.template import RequestContext
+from django.shortcuts import render_to_response
 
 from .models import News, Image
 from .forms import AddNoteForm
@@ -64,3 +66,15 @@ class NewsDetailView(generic.FormView):
             return news
         else:
             raise Http404()
+
+
+def about_me(request):
+    return render_to_response('about_me.html',
+            {'': ''},
+            context_instance=RequestContext(request))
+
+
+def contact(request):
+    return render_to_response('contact.html',
+            {'': ''},
+            context_instance=RequestContext(request))
