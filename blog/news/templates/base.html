@@ -15,9 +15,9 @@
     <div class="menu">
       <ul>
         <li class="selected"><a href="{% url "news-list" %}">home</a></li>
-        <li><a href="http://www.free-css.com/">o mnie</a></li>
+        <li><a href="{% url "about-me" %}">o mnie</a></li>
         <li><a href="{% url "image-list" %}">zdjęcia</a></li>
-        <li><a href="http://www.free-css.com/">kontakt</a></li>
+        <li><a href="{% url "contact" %}">kontakt</a></li>
           <li><a href="{% url "archieve-feed" %}">RSS</a></li>
       </ul>
     </div>
@@ -33,15 +33,14 @@
     <div class="bottom_content">
       <div class="about_text">
         <h1>O mnie</h1>
-        <p> Tu będzie kilka słówek o mnie, ale to za jaki czas. </p>
+        <p>25-letni inżynier budownictwa, emerytowany instruktor aikido...<a href="{% url "about-me" %}">[czytaj dalej] </p>
       </div>
       <div class="friends_list">
         <h1>Zaprzyjaźnione strony</h1>
         <ul class="list">
-          <li><a href="http://www.free-css.com/">Facebook Pana Kruka</a></li>
-          <li><a href="http://www.free-css.com/">Kastorama</a></li>
-          <li><a href="http://www.free-css.com/"></a></li>
-          <li><a href="http://www.free-css.com/"></a></li>
+          <li><p><a href="http://www.castorama.pl/">Castorama</a></p></li>
+
+
         </ul>
       </div>
       <div class="bottom_right"> <a href="http://www.free-css.com/"><img src="images/join_club.gif" alt="" border="0" /></a> <a href="http://csstemplatesmarket.com"><img src="images/csstemplatesmarket.gif" alt="" border="0" /></a> </div>

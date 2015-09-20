@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <h3>...czyli jak ciężka jest droga do zdobycia tego tytułu;)</h3><br>
-    <h1>Zdjęcia od najnowszych do najstarszych:</h1><ul>
+    <p>Zdjęcia od najnowszych do najstarszych:</p><ul>
     {% for image in image_list %}
         {% ifchanged %}
-            <br><br><li><h1>{{ image.date }}</h1></li>
+            <br><br><li><p>{{ image.date }}</p></li>
         {% endifchanged %}
             <a href="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" data-lightbox="image" data-title="{{ image.title }} - zdjęcie z {{ image.date }}">
             <img src="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" height=120 alt="" data-lightbox="image-1" /></a>

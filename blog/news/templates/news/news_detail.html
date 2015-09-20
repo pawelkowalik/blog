@@ -2,11 +2,13 @@
 {% block content %}
 <h1><a href=#>{{ news.title }}</a></h1>
 		<p>{{ news.posted_date|date:" d.m.Y " }}</p>
+        <a name="content"></a>
 		<p>{{ news.text|safe }}</p>
 		{% for image in news.pictures.all %}
-			<center><img src="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" height=400 alt="" class="center" /></center><br>
-			{{ image.title }}<br><br>
+			<img src="{{ STATIC_URL|cut:"static/" }}{{image|cut:"blog/" }}" height=400 alt="" class="center" /><br><br>
+			{{ image.title }}<br><br><br>
 		{% endfor %}
+        <a name="comments"></a>
 		<br><br><b>Komentarze:</b><br><ol>
 		{% for note in news.notetopost_set.all %}
 			<br><li><b>{{ note.author }}</b> - {{ note.posted_date|date:" H:i " }}, {{ note.posted_date|date:"d E Y "}}

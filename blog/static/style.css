@@ -11,6 +11,7 @@ p{
 padding:0px 0 20px 0;
 margin:0px;
 line-height:17px;
+    font-size: 14px;
 }
 p.tips{
 padding:0px 0 7px 0;
@@ -33,6 +34,7 @@ margin:0px;
 font-size:12px;
 font-weight:bold;
 }
+
 a.read_more{
 display:block;
 color:#855f35;

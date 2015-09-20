@@ -9,14 +9,14 @@ class Image(models.Model):
     image = models.ImageField('Obrazek', upload_to="blog/static/pictures/")
     date = models.DateField('Data wykonania zdjęcia')
 
-
     class Meta:
-        ordering = ["title"]
+        ordering = ["image"]
         verbose_name = "Obrazek"
         verbose_name_plural = "Obrazki"
 
     def __unicode__(self):
         return self.image.name
+
 
 class News(models.Model):
     author = models.ForeignKey('auth.User')
